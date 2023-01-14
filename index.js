@@ -24,7 +24,7 @@ exports.getOriginalName = (iso) => {
 /**
  * 
  * @param {string} iso 
- * @returns {object[]}
+ * @returns {object}
  */
 exports.getAllNames = (iso) => {
     if(!iso) return 'error ISO'
@@ -35,7 +35,7 @@ exports.getAllNames = (iso) => {
 /**
  * 
  * @param {string} Language 
- * @returns {object[]}
+ * @returns {object}
  */
 exports.getISObyName = (Language) => {
     if(!Language) return 'error ISO'
@@ -48,7 +48,7 @@ exports.getISObyName = (Language) => {
 /**
  * 
  * @param {string} Language 
- * @returns {object[]}
+ * @returns {object}
  */
 exports.getISObyFullName = (Language) => {
     if(!Language) return 'error ISO'
