@@ -1,3 +1,5 @@
+const languageData = require('./datas.json')
+
 exports.version = require("./package.json").version
 /**
  * 
@@ -7,8 +9,8 @@ exports.version = require("./package.json").version
 exports.getName = (iso) => {
     if(!iso) return 'error ISO'
     iso = String(iso).toLowerCase()
-    if(!require("./datas.json")[iso]) return 'invalid ISO'
-    else return require("./datas.json")[iso].name
+    if(!languageData[iso]) return 'invalid ISO'
+    else return languageData[iso].name
 }
 /**
  * 
@@ -18,8 +20,8 @@ exports.getName = (iso) => {
 exports.getOriginalName = (iso) => {
     if(!iso) return 'error ISO'
     iso = String(iso).toLowerCase()
-    if(!require("./datas.json")[iso]) return 'invalid ISO'
-    else return require("./datas.json")[iso].nativeName
+    if(!languageData[iso]) return 'invalid ISO'
+    else return languageData[iso].nativeName
 }
 /**
  * 
@@ -29,8 +31,8 @@ exports.getOriginalName = (iso) => {
 exports.getAllNames = (iso) => {
     if(!iso) return 'error ISO'
     iso = String(iso).toLowerCase()
-    if(!require("./datas.json")[iso]) return 'invalid ISO'
-    else return require("./datas.json")[iso]
+    if(!languageData[iso]) return 'invalid ISO'
+    else return languageData[iso]
 }
 /**
  * 
@@ -40,7 +42,7 @@ exports.getAllNames = (iso) => {
 exports.getISObyName = (Language) => {
     if(!Language) return 'error ISO'
     Language = String(Language).toLowerCase()
-    let Languages = Object.entries(require("./datas.json"))
+    let Languages = Object.entries(languageData)
     let search = Languages.find(la => la[1].name.toLowerCase() === Language)
     if(!search) return 'invalid language'
     else return search[0]
@@ -53,7 +55,7 @@ exports.getISObyName = (Language) => {
 exports.getISObyFullName = (Language) => {
     if(!Language) return 'error ISO'
     Language = String(Language).toLowerCase()
-    let Languages = Object.entries(require("./datas.json"))
+    let Languages = Object.entries(languageData)
     let search = Languages.find(la => la[1].nativeName.toLowerCase() === Language)
     if(!search) return 'invalid language'
     else return search[0]
